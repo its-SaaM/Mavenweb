@@ -9,7 +9,7 @@ public class HealthCheckIT {
 
     @Test
     public void healthCheckReturns200() throws Exception {
-        URL url = new URL("http://localhost:9090/hello");
+        URL url = new URL("http://localhost:9090/HelloServlet");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
 
