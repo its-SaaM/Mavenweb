@@ -17,7 +17,7 @@ public class ServerRunningIT {
 
     @Test
     public void serverRootReturns200() throws Exception {
-        URL url = new URL("http://localhost:8080/");
+        URL url = new URL("http://localhost:9090/");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         assertEquals(200, conn.getResponseCode());
     }

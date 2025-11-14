@@ -18,7 +18,7 @@ public class HealthCheckIT
 
     @Test
     public void healthEndpointReturnsUp() throws Exception {
-        URL url = new URL("http://localhost:8080/health");
+        URL url = new URL("http://localhost:9090/health");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
 

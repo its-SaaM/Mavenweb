@@ -17,7 +17,7 @@ public class TestServer {
             return; // server already started
         }
 
-        server = HttpServer.create(new InetSocketAddress(8080), 0);
+        server = HttpServer.create(new InetSocketAddress(9090), 0);
 
         // Root handler -> returns 200 OK
         server.createContext("/", new RootHandler());
