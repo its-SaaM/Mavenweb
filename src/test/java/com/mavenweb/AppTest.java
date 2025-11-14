@@ -1,4 +1,4 @@
-package com.example;
+package com.mavenweb;
 
 import static org.junit.Assert.assertEquals;
 
