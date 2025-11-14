@@ -9,7 +9,7 @@ public class ServerRunningIT {
 
     @Test
     public void serverIsRunning() throws Exception {
-        UURL url = new URL("http://localhost:9090/HelloServlet");
+        URL url = new URL("http://localhost:9090/HelloServlet");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
 
