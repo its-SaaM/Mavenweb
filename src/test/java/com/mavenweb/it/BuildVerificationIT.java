@@ -1,12 +1,18 @@
 package com.mavenweb.it;
 
 import org.junit.Test;
-import static org.junit.Assert.assertTrue;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import static org.junit.Assert.assertEquals;
 
 public class BuildVerificationIT {
 
     @Test
-    public void buildWorks() {
-        assertTrue(true);
+    public void buildVerificationReturns200() throws Exception {
+        URL url = new URL("http://localhost:9090/hello");
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
+
+        assertEquals(200, con.getResponseCode());
     }
 }

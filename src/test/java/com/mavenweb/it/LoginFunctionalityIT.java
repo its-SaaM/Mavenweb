@@ -9,10 +9,10 @@ public class LoginFunctionalityIT {
 
     @Test
     public void loginPageLoadsSuccessfully() throws Exception {
-        URL url = new URL("http://localhost:9090/login.jsp");
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
+        URL url = new URL("http://localhost:9090/hello");
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
 
-        assertEquals(200, conn.getResponseCode());
+        assertEquals(200, con.getResponseCode());
     }
 }

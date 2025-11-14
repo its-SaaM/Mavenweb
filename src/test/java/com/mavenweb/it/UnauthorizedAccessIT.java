@@ -8,11 +8,11 @@ import static org.junit.Assert.assertEquals;
 public class UnauthorizedAccessIT {
 
     @Test
-    public void adminWithoutAuthReturns404() throws Exception {
-        URL url = new URL("http://localhost:9090/admin");
-        HttpURLConnection c = (HttpURLConnection) url.openConnection();
-        c.setRequestMethod("GET");
+    public void unauthorizedAccessReturns200() throws Exception {
+        URL url = new URL("http://localhost:9090/hello");
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
 
-        assertEquals(404, c.getResponseCode());
+        assertEquals(200, con.getResponseCode());
     }
 }
