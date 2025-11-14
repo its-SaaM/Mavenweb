@@ -56,6 +56,12 @@
   <artifactId>json</artifactId>
   <version>20211205</version>
 </dependency>
+<dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-servlet</artifactId>
+    <version>11.0.17</version>
+    <scope>test</scope>
+</dependency>
 
     </dependencies>
 

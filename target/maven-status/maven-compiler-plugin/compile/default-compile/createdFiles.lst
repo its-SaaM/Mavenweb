@@ -1,0 +1,6 @@
+com\mavenweb\AdminServlet.class
+com\mavenweb\LoginServlet.class
+com\mavenweb\HelloServlet.class
+com\mavenweb\RootServlet.class
+com\mavenweb\AuthenticateServlet.class
+com\mavenweb\HealthServlet.class

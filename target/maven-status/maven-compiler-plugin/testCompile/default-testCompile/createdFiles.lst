@@ -1,0 +1,7 @@
+com\mavenweb\it\BuildVerificationIT.class
+com\mavenweb\it\UnauthorizedAccessIT.class
+com\mavenweb\it\HelloServlet.class
+com\mavenweb\it\ServerRunningIT.class
+com\mavenweb\it\HealthCheckIT.class
+com\mavenweb\AppTest.class
+com\mavenweb\it\LoginFunctionalityIT.class
