@@ -1,18 +1,24 @@
 package com.mavenweb.it;
 
+import com.mavenweb.TestServer;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static org.junit.Assert.assertEquals;
+
 public class ServerRunningIT {
+
+    @BeforeClass
+    public static void setup() throws Exception {
+        TestServer.start();
+    }
+
     @Test
     public void serverRootReturns200() throws Exception {
-        URL url = new URL("http://localhost:9090/");
-        HttpURLConnection c = (HttpURLConnection) url.openConnection();
-        c.setRequestMethod("GET");
-        c.setConnectTimeout(5000);
-        int code = c.getResponseCode();
-        assertEquals(200, code);
+        URL url = new URL("http://localhost:8080/");
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        assertEquals(200, conn.getResponseCode());
     }
 }

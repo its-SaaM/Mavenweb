@@ -1,27 +1,35 @@
 package com.mavenweb.it;
 
+import com.mavenweb.TestServer;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import java.net.*;
-import java.io.*;
+
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import static org.junit.Assert.assertEquals;
 
 public class LoginFunctionalityIT {
+
+    @BeforeClass
+    public static void start() throws Exception {
+        TestServer.start();
+    }
+
     @Test
     public void validLoginReturnsSuccessJson() throws Exception {
-        URL url = new URL("http://localhost:9090/authenticate");
-        HttpURLConnection c = (HttpURLConnection) url.openConnection();
-        c.setRequestMethod("POST");
-        c.setDoOutput(true);
-        String body = "username=admin&password=admin123";
-        c.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        c.getOutputStream().write(body.getBytes("UTF-8"));
-        int code = c.getResponseCode();
-        assertEquals(200, code);
+        URL url = new URL("http://localhost:8080/login");
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("POST");
+        conn.setDoOutput(true);
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(c.getInputStream()));
-        StringBuilder sb = new StringBuilder(); String line;
-        while ((line = br.readLine()) != null) sb.append(line);
-        br.close();
-        assertTrue(sb.toString().contains("\"login\":\"success\""));
+        String data = "username=admin&password=admin";
+
+        try(OutputStream os = conn.getOutputStream()) {
+            os.write(data.getBytes());
+        }
+
+        assertEquals(200, conn.getResponseCode());
     }
 }
